@@ -1035,5 +1035,230 @@ Inputs = text, password, email, radio, checkbox, textarea, select, file, date, r
 Attributes = action, method, required, placeholder, min, max, pattern
 
 Validation can be handled by HTML5 or JavaScript -->
+
+
+<!-- HTML SPECIAL CHARACTERS 
+ HTML Special Characters (Entities)
+1. What Are HTML Special Characters?
+
+HTML uses special reserved symbols as part of its syntax. For example:
+
+< is used to open an HTML tag.
+
+> is used to close an HTML tag.
+
+& is used to define entities.
+
+Because these characters are reserved, you cannot directly use them in text content without confusing the browser.
+
+👉 To safely display them, we use HTML Entities.
+
+2. What Is an HTML Entity?
+
+An HTML Entity is a code that starts with an ampersand (&) and ends with a semicolon (;).
+
+Example:
+
+&lt; → < (less-than sign)
+
+&gt; → > (greater-than sign)
+
+&amp; → & (ampersand)
+
+💡 Format:
+
+&entityName;   named entity -->
+&#entityNumber; <!-- numeric entity (decimal) 
+&#xHexNumber;    hexadecimal entity
+
+3. Why Use Special Characters?
+
+To avoid conflicts with HTML syntax. (e.g., <script> vs showing <script> as text).
+
+To display symbols that are not on the keyboard (©, €, ™, etc.).
+
+For international characters (ñ, ü, å, etc.).
+
+For mathematical symbols (∑, √, ≤, ≥).
+
+4. Commonly Used HTML Entities
+
+Here are some frequently used ones:
+
+Character	Entity Name	Entity Number	Output
+<	&lt;	&#60;	<
+>	&gt;	&#62;	>
+&	&amp;	&#38;	&
+"	&quot;	&#34;	"
+'	&apos;	&#39;	'
+©	&copy;	&#169;	©
+®	&reg;	&#174;	®
+™	&trade;	&#8482;	™
+€	&euro;	&#8364;	€
+£	&pound;	&#163;	£
+¥	&yen;	&#165;	¥
+→	&rarr;	&#8594;	→
+←	&larr;	&#8592;	←
+↑	&uarr;	&#8593;	↑
+↓	&darr;	&#8595;	↓
+5. Examples in Real HTML
+Example 1: Showing Reserved Characters
+<p>To write 2 < 5 in HTML, you use: 2 &lt; 5</p>
+
+
+✅ Output:
+To write 2 < 5 in HTML, you use: 2 < 5
+
+Example 2: Displaying Symbols
+<p>Copyright &copy; 2025 BiiZIi</p>
+<p>Price: 50 &euro;</p>
+
+
+✅ Output:
+Copyright © 2025 BiiZIi
+Price: 50 €
+
+Example 3: Arrows & Math
+<p>A &rarr; B &rarr; C</p>
+<p>5 &le; 10 and 10 &ge; 5</p>
+
+
+✅ Output:
+A → B → C
+5 ≤ 10 and 10 ≥ 5
+
+6. Types of Entities
+
+Named Entities (e.g., &copy;, &lt;).
+
+Numeric Entities (Decimal): &#169;.
+
+Hexadecimal Entities: &#x00A9;.
+
+All three display the same © symbol.
+
+7. Best Practices
+
+Always use &lt; and &gt; when writing code snippets inside HTML.
+
+Use entities for symbols not supported by your keyboard.
+
+For modern browsers, UTF-8 encoding supports most characters directly, but entities are still safer in many cases.
+
+Add this meta tag in your HTML head to ensure proper display of characters:
+
+<meta charset="UTF-8"> -->
+
+<!-- HTML TEXT FORMATING -->
+ <!-- HTML Text Formatting
+1. What Is Text Formatting in HTML?
+
+Text formatting in HTML refers to changing the appearance or meaning of text by using special tags.
+These tags can make text bold, italic, underlined, highlighted, smaller, superscript, subscript, etc.
+
+They don’t just control appearance — some also provide semantic meaning, which helps with accessibility (screen readers) and SEO.
+
+2. Categories of Text Formatting
+
+HTML text formatting can be divided into two groups:
+
+Presentational Tags – change how text looks (e.g., <b>, <i>, <u>).
+
+Semantic Tags – describe the meaning or importance of text (e.g., <strong>, <em>, <mark>).
+
+3. Commonly Used HTML Text Formatting Tags
+Tag	Meaning / Usage	Example	Output
+<b>	Bold (visual only, not semantic)	<b>Bold Text</b>	Bold Text
+<strong>	Strong importance (semantic, screen readers stress it)	<strong>Important!</strong>	Important!
+<i>	Italics (visual only, not semantic)	<i>Italic Text</i>	Italic Text
+<em>	Emphasized text (semantic)	<em>Emphasized</em>	Emphasized
+<u>	Underlined text	<u>Underlined</u>	<u>Underlined</u>
+<mark>	Highlighted text	<mark>Highlight</mark>	<mark>Highlight</mark>
+<small>	Smaller text	<small>Small note</small>	<small>Small note</small>
+<del>	Deleted (strike-through) text	<del>Removed</del>	Removed
+<ins>	Inserted text (underlined, semantic)	<ins>New text</ins>	<ins>New text</ins>
+<sub>	Subscript (below baseline)	H<sub>2</sub>O	H₂O
+<sup>	Superscript (above baseline)	10<sup>2</sup>	10²
+<abbr>	Abbreviation (with tooltip)	<abbr title="HyperText Markup Language">HTML</abbr>	HTML (hover shows tooltip)
+<blockquote>	Quotation block (long quotes)	<blockquote>Quoted text</blockquote>	
+> Quoted text |
+
+
+| <q> | Inline quotation (short quotes) | <q>Hello</q> | “Hello” |
+| <cite> | Citation (title of a book, work, etc.) | <cite>Romeo and Juliet</cite> | Romeo and Juliet |
+| <code> | Inline code (monospace) | <code>console.log("Hi")</code> | console.log("Hi") |
+| <pre> | Preformatted text (keeps spaces & line breaks) | <pre>Line 1 Line 2</pre> | Preserves spacing exactly |
+| <kbd> | Keyboard input | <kbd>Ctrl</kbd> + <kbd>C</kbd> | ⌨️ Ctrl + C |
+| <samp> | Sample output | <samp>Hello World</samp> | Hello World |
+| <var> | Variable in math/programming | <var>x</var> = 10 | x = 10 |
+
+4. Examples in Action
+Example 1: Basic Formatting
+<p>This is <b>bold</b>, <i>italic</i>, <u>underlined</u>, and <mark>highlighted</mark>.</p>
+
+
+✅ Output:
+This is bold, italic, <u>underlined</u>, and <mark>highlighted</mark>.
+
+Example 2: Subscript & Superscript
+<p>Chemical Formula: H<sub>2</sub>O</p>
+<p>Math: 10<sup>2</sup> = 100</p>
+
+
+✅ Output:
+Chemical Formula: H₂O
+Math: 10² = 100
+
+Example 3: Quotation & Citation
+<blockquote>
+    "The best way to get started is to quit talking and begin doing."
+</blockquote>
+<p>- <cite>Walt Disney</cite></p>
+
+
+✅ Output:
+
+"The best way to get started is to quit talking and begin doing."
+— Walt Disney
+
+Example 4: Code & Keyboard
+<p>To copy text, press <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+<p>Example code: <code>document.getElementById("demo")</code></p>
+
+
+✅ Output:
+To copy text, press ⌨️ Ctrl + C
+Example code: document.getElementById("demo")
+
+Example 5: Preformatted Text
+<pre>
+This text
+   keeps spaces
+and line breaks
+exactly as typed.
+</pre>
+
+
+✅ Output:
+This text
+keeps spaces
+and line breaks
+exactly as typed.
+
+5. Semantic vs Non-Semantic Formatting
+
+Non-semantic tags: <b>, <i>, <u> → Only control styling.
+
+Semantic tags: <strong>, <em>, <mark>, <cite> → Carry meaning for search engines & screen readers.
+
+👉 Best practice: Use semantic tags whenever possible for accessibility and SEO. Use CSS for styling when you only want a visual effect.
+
+6. Best Practices
+
+✔ Always use semantic tags (<strong>, <em>, <abbr>) instead of purely visual ones.
+✔ Use <pre> and <code> for programming examples.
+✔ Use <kbd> and <samp> for user interaction & output representation.
+✔ Combine formatting with CSS for full control over styles. -->
+
 </body>
 </html>
