@@ -1,4 +1,7 @@
-.registration-form{ 
+
+*{ 
+    margin: 0;
+}.registration-form{ 
     display: flex;
     width: 300px;
     padding: 4rem 1.5rem;
@@ -9,12 +12,17 @@
     flex-direction: column; 
     gap: 10px;
 }
+h4{ 
+    font-size: 2rem;
+}
 .registration-form label{ 
     font-weight: bold;
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 5px;
 }
-
+#middleName{ 
+    border-bottom: 5px solid rgb(240, 249, 73);
+}
 .registration-form input, .registration-form select{ 
     padding: 8px;
     border:  2px solid olivedrab;
@@ -42,3 +50,55 @@
     border-radius: 10px;
     padding: 20px;
 }
+
+.inlineS{
+    /* display: block;  */
+    border: 2px ridge #49f9f9;
+    margin: auto;
+}
+
+.inlineS{
+    /* display: block;  */
+    border: 2px ridge #473447f9;
+    margin: auto;
+}
+
+.highlight {
+  color: rgb(51, 0, 255);
+  background-color: yellow;
+}
+
+/* table, th, tr, td{ 
+    border: #473447f9 solid 4px;
+    border-collapse: collapse;
+} */
+ table{ 
+    width: 60%;
+    border: 4px solid #473447f9;
+    border-collapse: collapse;
+    margin: 4px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.906);
+ }
+
+ thead{ 
+    background-color: #a33;
+    color: whitesmoke;
+ }
+ tbody tr:nth-of-type(odd){ 
+    background-color: #05840585;
+ }
+ tbody tr:nth-of-type(even){ 
+    background-color: #b0f94985;
+ }
+ td, th{ 
+    padding: 5px;
+    border: 4px solid #def2de;
+ }
+ tfoot{ 
+    background-color: #a33;
+    color: whitesmoke;
+    font-weight: bold;
+ }

@@ -1,0 +1,596 @@
+/* Well Introduction On CSS */
+/* What is CSS?
+
+CSS stands for Cascading Style Sheets.
+It is a stylesheet language used to describe the look and layout of HTML documents — such as colors, fonts, spacing, positioning, and overall visual design of a web page.
+
+HTML gives a page its structure, while CSS gives it style and presentation.
+
+Example:
+
+<!-- HTML -->
+<h1>Hello, World!</h1>
+
+<!-- CSS -->
+<style>
+  h1 {
+    color: blue;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+</style>
+
+🎨 Why Use CSS?
+
+Separation of structure and design:
+HTML handles the content; CSS handles the design.
+
+Reusability:
+One CSS file can style multiple web pages — improving consistency and maintainability.
+
+Better performance:
+CSS reduces code duplication and page loading time.
+
+Responsiveness:
+CSS allows you to create layouts that adapt to various screen sizes (mobile, tablet, desktop).
+
+🧩 Ways to Add CSS
+
+There are three main methods to apply CSS to HTML:
+
+1. Inline CSS
+
+Applied directly within an HTML element using the style attribute.
+
+<p style="color: red; font-size: 18px;">This is inline CSS.</p>
+
+
+✅ Quick for small changes
+❌ Not reusable and clutters HTML
+
+2. Internal CSS
+
+Written inside a <style> tag within the <head> section of an HTML file.
+
+<head>
+  <style>
+    body {
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: blue;
+    }
+  </style>
+</head>
+
+
+✅ Works well for single-page websites
+❌ Not ideal for multi-page projects
+
+3. External CSS
+
+Written in a separate .css file and linked to the HTML file.
+
+<!-- HTML -->
+<link rel="stylesheet" href="style.css">
+
+<!-- style.css -->
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+
+✅ Most efficient method for large websites
+✅ Encourages clean code and reusability
+
+🧱 CSS Syntax
+
+Every CSS rule has two main parts:
+
+selector {
+  property: value;
+}
+
+
+Example:
+
+p {
+  color: green;
+  font-size: 16px;
+}
+
+
+Selector: Targets the HTML element (p)
+
+Property: Defines the aspect you want to style (color)
+
+Value: The setting you apply (green)
+
+🎯 CSS Selectors
+
+Selectors define which HTML elements you want to style.
+
+Selector Type	Example	Description
+Element Selector	h1 {}	Targets all <h1> tags
+Class Selector	.box {}	Targets elements with class="box"
+ID Selector	#main {}	Targets element with id="main"
+Universal Selector	* {}	Targets all elements
+Group Selector	h1, h2, h3 {}	Targets multiple elements
+Descendant Selector	div p {}	Targets <p> inside <div>
+Pseudo-class	a:hover {}	Styles element when user interacts
+⚙️ CSS Box Model
+
+Every HTML element is treated as a rectangular box.
+The box model consists of:
+
+Content → The text or image inside the element
+
+Padding → Space between content and border
+
+Border → Line surrounding padding
+
+Margin → Space outside the border
+
+Example:
+
+div {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 10px;
+}
+
+🧭 CSS Positioning and Layout
+
+CSS provides several layout techniques:
+
+Property	Description
+display	Defines how an element is displayed (block, inline, flex, grid)
+position	Specifies element positioning (static, relative, absolute, fixed, sticky)
+float	Moves an element to the left or right
+z-index	Controls stacking order of elements
+💡 CSS Units
+Absolute Units:
+
+px (pixels), cm, mm, in
+
+Relative Units:
+
+%, em, rem, vh, vw
+
+Example:
+
+h1 {
+  font-size: 2rem; /* relative to root font size 
+  margin: 10px;
+}
+
+🌈 Colors and Backgrounds
+
+CSS supports multiple color formats:
+
+Named colors: red, blue, green
+
+HEX: #ff0000
+
+RGB: rgb(255, 0, 0)
+
+RGBA: rgba(255, 0, 0, 0.5)
+
+HSL: hsl(0, 100%, 50%)
+
+Example:
+
+body {
+  background-color: #f4f4f4;
+  color: rgb(50, 50, 50);
+}
+
+✨ CSS Typography
+
+Control text appearance with:
+
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+📱 Responsive Design (Media Queries)
+
+Media queries help make websites responsive to screen size changes.
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+🧩 Advanced CSS Features
+Feature	Description
+Flexbox	Aligns and distributes space among items in a container
+Grid	Two-dimensional layout system for complex designs
+Transitions	Smoothly animate property changes
+Animations	Define keyframes for moving or transforming elements
+Variables	Reuse values with --variable-name syntax
+
+Example (animation):
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+div {
+  animation: slide 2s infinite alternate;
+}
+
+🧮 CSS Cascade and Specificity
+
+When multiple CSS rules target the same element, the cascade determines which one wins.
+
+The order of priority:
+
+Inline styles (highest)
+
+IDs
+
+Classes
+
+Elements
+
+Browser default styles
+
+Example:
+
+p { color: blue; }      /* element */
+p.special { color: red; } /* class */
+#unique { color: green; } /* id 
+
+🏁 Conclusion
+
+CSS is the core technology behind all web design.
+It allows developers to make web pages beautiful, consistent, and responsive.
+Mastering CSS involves understanding selectors, box model, layout techniques, and responsive design. */
+
+/* CSS SELECTORS */
+/* What Are CSS Selectors?
+
+CSS selectors are patterns used to target HTML elements you want to style.
+They tell the browser “apply these styles to these elements.”
+
+Each CSS rule starts with a selector, followed by declarations:
+
+selector {
+  property: value;
+}
+
+
+Example:
+
+p {
+  color: blue;
+  font-size: 18px;
+}
+
+
+Here:
+
+p → selector (targets all <p> tags)
+
+color and font-size → CSS properties
+
+blue and 18px → values
+
+🧱 1. Basic Selectors
+
+These are the most commonly used and fundamental selectors.
+
+🔹 a. Universal Selector *
+
+Selects all elements on the page.
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+👉 Often used to reset or normalize styling globally.
+
+🔹 b. Type Selector (Element Selector)
+
+Selects all instances of a specific HTML tag.
+
+h1 {
+  color: red;
+}
+p {
+  font-size: 16px;
+}
+
+
+👉 Targets every <h1> or <p> element.
+
+🔹 c. Class Selector .classname
+
+Selects elements that have a specific class attribute.
+
+<p class="highlight">This is highlighted text.</p>
+
+.highlight {
+  color: orange;
+  background-color: yellow;
+}
+
+
+👉 Classes are reusable; many elements can share the same class.
+
+🔹 d. ID Selector #idname
+
+Selects a single element with a unique id attribute.
+
+<p id="intro">Welcome to my page.</p>
+
+#intro {
+  font-weight: bold;
+  color: blue;
+}
+
+
+👉 IDs should be unique within a page.
+
+🔹 e. Group Selector (,)
+
+Applies the same styles to multiple selectors.
+
+h1, h2, h3 {
+  color: darkred;
+  font-family: Arial, sans-serif;
+}
+
+
+👉 Makes styling multiple elements efficient.
+
+🧩 2. Combinator Selectors
+
+Combinators define the relationship between elements in HTML structure.
+
+🔹 a. Descendant Selector (A B)
+
+Selects elements inside another element (nested).
+
+<div>
+  <p>This paragraph is inside div.</p>
+</div>
+
+div p {
+  color: green;
+}
+
+
+👉 Styles only <p> inside <div>.
+
+🔹 b. Child Selector (A > B)
+
+Selects elements that are direct children of another element.
+
+<div>
+  <p>Direct child</p>
+  <span><p>Nested child</p></span>
+</div>
+
+div > p {
+  color: red;
+}
+
+
+👉 Only the first <p> is styled because it’s a direct child.
+
+🔹 c. Adjacent Sibling Selector (A + B)
+
+Selects the first element immediately after another.
+
+<h2>Heading</h2>
+<p>This paragraph is right after h2.</p>
+<p>This one is not.</p>
+
+h2 + p {
+  color: blue;
+}
+
+
+👉 Only the first <p> after <h2> is styled.
+
+🔹 d. General Sibling Selector (A ~ B)
+
+Selects all siblings of an element that come after it.
+
+<h2>Title</h2>
+<p>First paragraph</p>
+<p>Second paragraph</p>
+
+h2 ~ p {
+  color: green;
+}
+
+
+👉 Styles both <p> elements after <h2>.
+
+🧭 3. Attribute Selectors
+
+Attribute selectors target elements based on their attributes and values.
+
+Selector	Description	Example
+[attr]	Elements with the attribute	[title] { color: red; }
+[attr="value"]	Attribute with exact value	input[type="text"]
+[attr~="value"]	Attribute containing a word	[class~="highlight"]
+`[attr	="value"]`	Attribute starting with value (hyphen separated)
+[attr^="value"]	Attribute starts with value	a[href^="https"]
+[attr$="value"]	Attribute ends with value	img[src$=".jpg"]
+[attr*="value"]	Attribute contains substring	a[href*="login"]
+
+Example:
+
+a[href^="https"] {
+  color: green;
+}
+
+img[src$=".png"] {
+  border: 2px solid red;
+}
+
+💡 4. Pseudo-Classes
+
+Pseudo-classes style elements in specific states or conditions.
+
+🔹 a. User Interaction States
+a:link    { color: blue; }   /* Unvisited link */
+a:visited { color: purple; } /* Visited link */
+a:hover   { color: red; }    /* Mouse hover */
+a:active  { color: orange; } /* When clicked
+
+
+👉 Often used for interactive elements.
+
+🔹 b. Structural Pseudo-classes
+
+Used to target elements based on position in the DOM.
+
+p:first-child { color: green; }   /* First child of parent */
+p:last-child  { color: blue; }    /* Last child */
+p:nth-child(2){ color: orange; }  /* Second child */
+li:nth-of-type(odd) { background: #eee; } /* Odd items */
+li:nth-of-type(even) { background: #ccc; } /* Even items 
+
+🔹 c. Negation and Targeting
+:not(.active) { opacity: 0.5; }  Everything except .active 
+:target { background: yellow; } /* Element targeted by a link 
+
+🔹 d. UI States
+input:focus {
+  border-color: blue;
+}
+input:disabled {
+  background: #ddd;
+}
+input:checked {
+  accent-color: red;
+}
+
+🎨 5. Pseudo-Elements
+
+Pseudo-elements style specific parts of an element.
+
+Pseudo-element	Description
+::before	Inserts content before an element
+::after	Inserts content after an element
+::first-line	Styles the first line of text
+::first-letter	Styles the first letter
+::selection	Styles text when selected
+
+Example:
+
+p::first-letter {
+  font-size: 200%;
+  color: red;
+}
+
+p::after {
+  content: " ✨";
+}
+
+🧮 6. Combining Selectors
+
+Selectors can be combined to make powerful rules.
+
+div.highlight > p:first-child::first-letter {
+  color: red;
+  font-size: 24px;
+}
+
+
+👉 This targets:
+
+A <div> with class .highlight
+
+Its first <p> child
+
+The first letter of that paragraph
+
+🧠 7. CSS Selector Specificity
+
+When multiple selectors target the same element, specificity decides which one wins.
+
+Selector Type	Specificity Value
+Inline styles	1000
+ID selector (#)	100
+Class, pseudo-class, attribute	10
+Element or pseudo-element	1
+
+Example:
+
+p { color: blue; }        /* 1 */
+p.special { color: red; } /* 10 */
+#main p { color: green; } /* 100 
+
+
+👉 Final color: green (highest specificity wins).
+
+⚙️ 8. Advanced Selectors (CSS Level 4)
+
+Modern CSS introduces powerful advanced selectors.
+
+🔹 a. :is()
+
+Simplifies grouping.
+
+:is(h1, h2, h3) {
+  color: darkblue;
+}
+
+
+Equivalent to:
+
+h1, h2, h3 { color: darkblue; }
+
+🔹 b. :where()
+
+Similar to :is() but has no specificity.
+
+:where(header, footer) p {
+  font-size: 14px;
+}
+
+🔹 c. :has()
+
+A parent selector — styles an element if it contains another element.
+
+article:has(img) {
+  border: 2px solid green;
+}
+
+
+👉 The <article> is styled only if it contains an <img>.
+
+🔹 d. :nth-child(an + b of selector)
+
+Targets more complex patterns.
+
+li:nth-child(2n of .highlight) {
+  background: yellow;
+}
+
+🧾 9. Selector Performance Tips
+
+Avoid using overly complex selectors (e.g., div > ul li a span).
+
+Prefer classes for maintainable, scalable code.
+
+Use IDs sparingly (only for unique items).
+
+Combine selectors logically to reduce redundancy. */
