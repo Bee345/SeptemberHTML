@@ -102,3 +102,75 @@ h4{
     color: whitesmoke;
     font-weight: bold;
  }
+
+ .cont p::before{ 
+    content: "Note: ";
+    font-weight: bold;
+    color: red;
+ }
+ .cont p::after{ 
+    content: " 👉";
+    font-weight: bold;
+    color: red;
+ }
+ .cont p::first-line{ 
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: blue;
+ }
+ .cont p::first-letter{ 
+    font-size: 2rem;
+    font-weight: bold;
+    color: green;
+    text-decoration: underline;
+ }
+
+ .highlights > p:first-child::first-letter{
+  color: red;
+  font-size: 24px;
+}
+article:has(img) {
+  border: 8px solid green;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+li:nth-child(2n of .score) {
+  background: yellow;
+}
+.show a span{ 
+    color: red;
+}
+#para{
+    color: #578857;
+    font-size: 1.8rem;
+    text-shadow: 5px 5px 4px #f95d49;
+    text-indent: 200px;
+    white-space: wrap;
+    direction: rtl;
+}
+.section{ 
+    width: 100%;
+    height: 100vh;
+    border: 5px solid #49f9f9;
+    margin: auto;
+    padding: 10px;
+    background: url('./Book2Read8.jpeg') repeat center center/cover;
+}
+.sub-sec{ 
+    width: 80%;
+    height: 80vh;
+    border: 10px groove #473447f9;
+    border-radius: 20px;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    background: url('./Future2.jpg') repeat center center/cover;
+}
+.sub-sec ul li{ 
+    list-style: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ab040a;
+}

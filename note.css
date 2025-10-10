@@ -593,4 +593,397 @@ Prefer classes for maintainable, scalable code.
 
 Use IDs sparingly (only for unique items).
 
-Combine selectors logically to reduce redundancy. */
+Combine selectors logically to reduce redundancy. 
+
+<!-- CSS CASCADE RULES -->
+     /* What Is the CSS Cascade?
+
+The CSS Cascade determines which CSS rule takes precedence when multiple rules target the same element.
+
+In simpler terms:
+
+The cascade is the decision-making process the browser uses to determine which styles are applied to an element when more than one style could apply.
+
+🧠 Why It’s Called “Cascade”
+
+The word cascade comes from the idea that styles “fall down” from multiple sources — browser defaults, external stylesheets, inline styles, etc. — and the browser must decide which one wins in the end.
+
+⚙️ The Cascade Decision Process
+
+When multiple rules conflict, the browser resolves it using three main factors (in order):
+
+Importance (Origin and !important)
+
+Specificity
+
+Source Order
+
+Let’s unpack each one carefully 👇
+
+🥇 1. Importance (Origin & !important)
+
+CSS can come from several origins:
+
+Origin	Description	Example
+User Agent Styles	Default styles provided by the browser.	Headings are bold by default.
+User Styles	Styles a user might set in their browser preferences (rare).	A user setting large text for accessibility.
+Author Styles	Styles written by you, the web developer.	Your CSS files, inline or embedded.
+
+Then there’s !important, which can override almost anything.
+
+🔹 Priority Order:
+
+User !important rules
+
+Author !important rules
+
+Author normal rules
+
+User normal rules
+
+Browser default (user-agent) rules
+
+✅ Example:
+
+p {
+  color: blue !important;
+}
+
+p {
+  color: red;
+}
+
+
+The paragraph will be blue, because !important gives it higher priority.
+
+🥈 2. Specificity
+
+Specificity tells the browser how specific a selector is.
+The more specific a rule, the more power it has.
+
+Specificity is often represented like this:
+
+Inline styles > IDs > Classes / Attributes / Pseudo-classes > Elements / Pseudo-elements
+
+💡 Specificity Score System
+
+Each selector gets a 4-part score:
+(a, b, c, d)
+
+Selector Type	Example	Score
+Inline style	<div style="color: red;">	(1, 0, 0, 0)
+ID selector	#main	(0, 1, 0, 0)
+Class, attribute, or pseudo-class	.btn, [type="text"], :hover	(0, 0, 1, 0)
+Element or pseudo-element	div, p::after	(0, 0, 0, 1)
+
+When two rules target the same element, the one with the higher specificity score wins.
+
+✅ Example:
+
+p {
+  color: blue;
+}
+
+.article p {
+  color: green;
+}
+
+#content p {
+  color: red;
+}
+#content p {
+  color: green;
+}
+
+
+Result → Paragraph text is red, because #content p has the highest specificity.
+
+🥉 3. Source Order (Last Rule Wins)
+
+If two rules have the same importance and specificity,
+the last one in the code wins.
+
+✅ Example:
+
+p {
+  color: green;
+}
+
+p {
+  color: orange;
+}
+
+
+Result → Paragraph text is orange, because it appears later in the stylesheet.
+
+🧾 Example Combining All Rules
+
+Let’s see how the cascade works when all three factors mix:
+
+<p id="intro" class="highlight" style="color: purple;">Hello CSS!</p>
+
+p {
+  color: red;
+}
+
+.highlight {
+  color: blue;
+}
+
+#intro {
+  color: green;
+}
+
+p {
+  color: yellow !important;
+}
+
+
+🧮 Cascade Evaluation:
+
+p { color: yellow !important; } → !important gives it highest priority
+
+Inline style (style="color: purple;") would normally win, but !important overrides inline
+
+So, the final color is yellow ✅
+
+🧬 The Inheritance Factor
+
+Not all CSS properties are directly affected by cascade rules alone — some inherit values from their parent elements.
+
+For example, color and font-family inherit by default.
+
+Others, like margin or border, do not.
+
+You can control inheritance using:
+
+inherit   /* explicitly inherit from parent */
+initial   /* revert to the default (browser) value */
+unset     /* inherit if normally inherited, otherwise initial */
+revert    /* revert to user or browser stylesheet 
+
+📊 Summary Table
+Priority	Factor	Description
+1	!important	Overrides all normal rules
+2	Specificity	More specific selectors win
+3	Source Order	Later rules override earlier ones
+—	Inheritance	Some properties inherit automatically
+💼 Real-World Use Cases
+Scenario	Explanation
+Fixing unexpected styles	Check cascade order and specificity to debug which rule wins.
+Overriding third-party CSS	Use !important or more specific selectors to ensure your rules apply.
+Theming	Manage style overrides gracefully by controlling cascade layers.
+Avoiding conflicts	Understanding the cascade helps you structure your CSS to avoid unexpected overrides. */
+
+/* What Are CSS Properties?
+
+In CSS, properties define what aspect of an element you want to style — such as its color, font, size, border, margin, or animation.
+
+A CSS rule looks like this:
+
+selector {
+  property: value;
+}
+
+
+Example:
+
+p {
+  color: blue;
+  font-size: 16px;
+}
+
+
+color and font-size are properties.
+
+blue and 16px are their values.
+
+🗂️ Main Categories of CSS Properties
+
+We can organize CSS properties into logical groups:
+
+Text & Font Properties
+
+Color & Background Properties
+
+Box Model Properties
+
+Positioning & Layout Properties
+
+Flexbox Properties
+
+Grid Properties
+
+Border & Outline Properties
+
+List Properties
+
+Table Properties
+
+Transform & Transition Properties
+
+Animation Properties
+
+Filter, Blend & Effects Properties
+
+Generated Content & Pseudo-elements
+
+Variables, Inheritance & Custom Properties
+
+Miscellaneous / UI Control Properties
+
+Let’s go through each in detail 👇
+
+1. 📝 Text and Font Properties
+
+These control how text looks and behaves.
+
+🔹 Font Properties
+Property	Description	Example
+font-family	Type of font used	font-family: 'Poppins', sans-serif;
+font-size	Size of text	font-size: 18px;
+font-style	Italic or normal	font-style: italic;
+font-weight	Boldness (100–900 or keywords)	font-weight: bold;
+font-variant	Small caps	font-variant: small-caps;
+line-height	Space between lines	line-height: 1.6;
+
+🔹 Text Formatting
+Property	Description	Example
+color	Text color	color: #333;
+text-align	Align text	text-align: center;
+text-decoration	Underline, overline, etc.	text-decoration: underline;
+text-transform	Uppercase, lowercase, capitalize	text-transform: uppercase;
+letter-spacing	Space between letters	letter-spacing: 2px;
+word-spacing	Space between words	word-spacing: 5px;
+text-indent	Indent first line	text-indent: 30px;
+text-shadow	Shadow effect	text-shadow: 2px 2px 5px gray;
+white-space	Handling spaces/wrapping	white-space: nowrap;
+direction	Text direction	direction: rtl;
+
+2. 🎨 Color and Background Properties
+Property	Description	Example
+background-color	Element background color	background-color: lightblue;
+background-image	Add image as background	background-image: url('bg.jpg');
+background-repeat	Repeat image	background-repeat: no-repeat;
+background-position	Image position	background-position: center;
+background-size	Image scaling	background-size: cover;
+background-clip	Define painting area	background-clip: padding-box;
+background-attachment	Fixed or scroll	background-attachment: fixed;
+background-blend-mode	Blend colors	background-blend-mode: multiply;
+opacity	Transparency (0–1)	opacity: 0.7;
+3. 📦 Box Model Properties
+
+The box model defines how every element is sized and spaced.
+
+Layer	Property	Description	Example
+Content	width, height	Size of content	width: 200px;
+Padding	padding, padding-top etc.	Space inside border	padding: 10px;
+Border	border, border-radius	Line around element	border: 2px solid black;
+Margin	margin, margin-top etc.	Space outside border	margin: 20px;
+Box Sizing	box-sizing	Include padding/border in size	box-sizing: border-box;
+4. 📍 Positioning & Layout Properties
+Property	Description	Example
+position	static, relative, absolute, fixed, sticky	position: absolute;
+top, right, bottom, left	Offset from container	top: 10px;
+z-index	Stacking order	z-index: 100;
+float	Float element left/right	float: left;
+clear	Prevent floating overlap	clear: both;
+display	Block, inline, flex, grid, etc.	display: flex;
+overflow	Handle overflow content	overflow: hidden;
+clip-path	Clip shape area	clip-path: circle(50%);
+5. 🧱 Flexbox Properties
+Property	Description	Example
+display	Enable flexbox	display: flex;
+flex-direction	Row or column layout	flex-direction: row;
+justify-content	Main axis alignment	justify-content: space-between;
+align-items	Cross-axis alignment	align-items: center;
+flex-wrap	Wrap items or not	flex-wrap: wrap;
+align-content	Multi-line alignment	align-content: center;
+flex	Grow/Shrink/Basis shorthand	flex: 1;
+order	Reorder flex items	order: 2;
+6. 🧩 Grid Properties
+Property	Description	Example
+display	Enable grid layout	display: grid;
+grid-template-columns	Column structure	grid-template-columns: 1fr 1fr;
+grid-template-rows	Row structure	grid-template-rows: auto 100px;
+gap	Space between grid cells	gap: 10px;
+justify-items	Align items horizontally	justify-items: center;
+align-items	Align items vertically	align-items: start;
+grid-area	Assign named grid area	grid-area: header;
+grid-template-areas	Layout map	See below example
+
+Example:
+
+grid-template-areas:
+  "header header"
+  "sidebar main"
+  "footer footer";
+
+7. 🖌️ Border and Outline Properties
+Property	Description	Example
+border	All-in-one border	border: 2px solid black;
+border-width, border-color, border-style	Individual controls	border-style: dashed;
+border-radius	Rounded corners	border-radius: 10px;
+outline	Outside border (non-layout)	outline: 1px solid red;
+box-shadow	Drop shadow	box-shadow: 2px 2px 8px gray;
+8. 📋 List Properties
+Property	Description	Example
+list-style-type	Bullet type	list-style-type: square;
+list-style-image	Custom bullet image	list-style-image: url('icon.png');
+list-style-position	Inside or outside marker	list-style-position: inside;
+9. 📊 Table Properties
+Property	Description	Example
+border-collapse	Merge table borders	border-collapse: collapse;
+border-spacing	Space between cells	border-spacing: 10px;
+caption-side	Caption position	caption-side: bottom;
+empty-cells	Show/hide empty cells	empty-cells: hide;
+10. ⚙️ Transform & Transition Properties
+Property	Description	Example
+transform	Move, rotate, scale	transform: rotate(45deg);
+transform-origin	Transformation point	transform-origin: center;
+transition	Smooth change	transition: all 0.3s ease;
+transition-property	Property to animate	transition-property: color;
+transition-duration	Duration	transition-duration: 0.5s;
+11. 🎞️ Animation Properties
+Property	Description	Example
+@keyframes	Define animation	@keyframes move { from {left: 0;} to {left: 100px;} }
+animation-name	Name of keyframes	animation-name: move;
+animation-duration	Time	animation-duration: 2s;
+animation-iteration-count	Repeat times	animation-iteration-count: infinite;
+animation-delay	Start delay	animation-delay: 1s;
+animation-direction	Normal, reverse, alternate	animation-direction: alternate;
+12. 🧪 Filter, Blend & Visual Effects
+Property	Description	Example
+filter	Apply visual filters	filter: blur(5px);
+mix-blend-mode	Blend element colors	mix-blend-mode: multiply;
+backdrop-filter	Blur behind element	backdrop-filter: blur(10px);
+13. ✨ Generated Content & Pseudo-elements
+Selector / Property	Description	Example
+::before, ::after	Add content before/after element	p::after { content: "✓"; }
+content	Defines generated content	content: "Read more";
+14. ⚙️ Variables, Inheritance & Custom Properties
+Property	Description	Example
+--var-name	Define a variable	--main-color: blue;
+var()	Use variable	color: var(--main-color);
+inherit, initial, unset, revert	Control inheritance	color: inherit;
+15. 🧍 Miscellaneous / UI Properties
+Property	Description	Example
+cursor	Pointer style	cursor: pointer;
+resize	Allow resize	resize: both;
+user-select	Allow text selection	user-select: none;
+visibility	Hide but keep space	visibility: hidden;
+display	Hide or show	display: none;
+pointer-events	Enable/disable click	pointer-events: none;
+🧩 Summary
+Category	Example Properties
+Text & Font	color, font-size, text-align
+Background	background-color, background-image
+Box Model	margin, padding, border
+Layout	display, position, float
+Flexbox & Grid	justify-content, grid-template-columns
+Animation & Transform	transition, transform, animation
+Effects	filter, opacity, box-shadow
+Variables	--theme-color, var()
+🏁 In Short:
+
+CSS properties are instructions that tell the browser how to render HTML elements — controlling layout, typography, colors, spacing, and animation to create visually appealing and responsive designs. */
