@@ -129,6 +129,13 @@ h4{
   color: red;
   font-size: 24px;
 }
+.highlight{ 
+    direction: rtl;
+}
+
+article img{ 
+    width: 100%;
+}
 article:has(img) {
   border: 8px solid green;
     padding: 10px;
@@ -162,7 +169,7 @@ li:nth-child(2n of .score) {
     width: 80%;
     height: 80vh;
     border: 10px groove #473447f9;
-    border-radius: 20px;
+    border-radius: 80px;
     margin: auto;
     text-align: center;
     align-content: center;
@@ -173,4 +180,14 @@ li:nth-child(2n of .score) {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ab040a;
+    
+}
+.flexbox{ 
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-wrap: wrap;
+    border: 4px groove #484744;
+    justify-content: space-around;
+    align-items: center;
 }
