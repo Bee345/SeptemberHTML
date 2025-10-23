@@ -12,6 +12,9 @@
     flex-direction: column; 
     gap: 10px;
 }
+:root{ 
+    --primary: #33ed3e;
+}
 h4{ 
     font-size: 2rem;
 }
@@ -21,7 +24,7 @@ h4{
     margin-bottom: 5px;
 }
 #middleName{ 
-    border-bottom: 5px solid rgb(240, 249, 73);
+    border-bottom: 2px solid rgb(240, 249, 73);
 }
 .registration-form input, .registration-form select{ 
     padding: 8px;
@@ -65,7 +68,7 @@ h4{
 
 .highlight {
   color: rgb(51, 0, 255);
-  background-color: yellow;
+  background-color: var(--primary);
 }
 
 /* table, th, tr, td{ 
@@ -80,9 +83,16 @@ h4{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     text-align: center;
+    /* border-spacing: 10px; */
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.906);
  }
 
+table caption{ 
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px;
+    caption-side: bottom;
+}
  thead{ 
     background-color: #a33;
     color: whitesmoke;
@@ -189,5 +199,28 @@ li:nth-child(2n of .score) {
     flex-wrap: wrap;
     border: 4px groove #484744;
     justify-content: space-around;
+    /* background: linear-gradient(to top, #fed, #d34, #dd3); */
+    /* background: radial-gradient(circle, rgb(230, 200, 122), rgba(100, 30, 80)); */
+    background: conic-gradient(from 130deg, rgb(33, 150, 200), rgb(17, 55, 20));
     align-items: center;
+}
+
+.skills{ 
+    list-style: none;
+    padding: 0;
+}
+
+.skills li{ 
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 10px;
+}
+.skills li::before{ 
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url('./Checkmark2.jpg')  center/contain no-repeat;
+    z-index: 2;
 }
