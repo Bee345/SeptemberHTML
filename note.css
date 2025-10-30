@@ -1620,3 +1620,950 @@ Modern glassmorphism and neumorphism designs
 
 
 This darkens the image with a gradient overlay for better text readability. */
+
+
+
+/* GOOGLE FONTS */
+/* What Are Google Fonts?
+
+Google Fonts is a free web service provided by Google that hosts a large collection of open-source fonts you can use in your web projects.
+It allows designers and developers to use custom fonts without needing to manually upload or license them.
+
+Instead of being limited to system fonts like Arial, Times New Roman, or Verdana, you can choose from hundreds of stylish fonts like:
+
+Roboto
+
+Poppins
+
+Lato
+
+Open Sans
+
+Montserrat
+
+Dancing Script, etc.
+
+These fonts are hosted on Google’s fast CDN (Content Delivery Network), which means:
+✅ They load quickly
+✅ They work on all devices and browsers
+✅ They are completely free to use
+
+🧩 Why Use Google Fonts
+
+Variety: Over 1,500+ fonts — serif, sans-serif, display, handwriting, and monospace.
+
+Ease of Use: Just one line of code and a font-family declaration.
+
+Performance: Optimized and cached globally.
+
+Consistency: Same visual style across browsers and devices.
+
+Customization: You can select font weights (bold, light), styles (italic), and subsets (Latin, Cyrillic, etc.).
+
+🧱 How Google Fonts Work
+
+When you choose a font on Google Fonts
+, you’re given two main ways to include it:
+
+HTML <link> method – added inside your <head> tag.
+
+CSS @import method – added at the top of your CSS file.
+
+Both methods do the same thing — they tell the browser where to download the font from Google’s servers.
+
+🎨 Using the @import Method (Step-by-Step)
+
+Here’s the main part you asked for 👇
+
+Step 1: Visit Google Fonts
+
+Go to 👉 https://fonts.google.com
+
+Browse and choose any font you want.
+For example, let’s choose Poppins.
+
+Step 2: Customize the Font
+
+Click the font → choose the styles you need.
+
+Example:
+
+Regular 400
+
+Bold 700
+
+Italic 400
+
+Then, at the top right, you’ll see a panel that shows “Use on the web”.
+
+Step 3: Select the @import Option
+
+You’ll see two tabs:
+
+Link
+
+Import
+
+Click “Import”.
+
+It will look something like this:
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+Step 4: Add the Import to Your CSS File
+
+Now, copy that @import line and paste it at the very top of your CSS file — before all other CSS rules.
+
+Example:
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Your CSS rules 
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+
+✅ Important:
+The @import statement must come before any other CSS code, or else the font may not load correctly.
+
+Step 5: Use the Font in Your Styles
+
+After importing, you can use the font anywhere in your CSS with font-family.
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+💡 Understanding the URL Parts
+
+Example again:
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+family=Poppins → The font name
+
+wght@400;700 → The weights (regular 400 and bold 700)
+
+display=swap → A performance setting (it tells the browser to use a fallback font until the Google Font loads)
+
+⚙️ Multiple Fonts Example
+
+You can import multiple fonts in one go, separated by &.
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@300;500&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+🚀 Advantages of the @import Method
+
+✅ Keeps your HTML file cleaner (no <link> tags).
+✅ Easier to manage if you have multiple stylesheets (you can just import fonts in one CSS file).
+✅ Can be used inside CSS modules or SCSS files too.
+
+⚠️ Disadvantages of the @import Method
+
+❌ Slightly slower performance than the <link> tag — because the CSS file must load before the browser fetches the font.
+❌ Not ideal for very large projects with many external requests.
+
+👉 For small or medium-sized projects, it’s perfectly fine. */
+
+/* LIST STYLING AND TABLES IN CSS  */
+
+/* LIST STYLING IN CSS
+
+HTML lists (<ul>, <ol>, <li>, and <dl>) are commonly used to display items in ordered or unordered formats. CSS provides powerful ways to style and customize them beyond the default bullets or numbers.
+
+🟢 Types of Lists
+
+Unordered List (<ul>) – displays items with bullets by default.
+
+Ordered List (<ol>) – displays items with numbers or letters.
+
+Description List (<dl>) – uses <dt> (term) and <dd> (description).
+
+🎨 List Style Properties
+1. list-style-type
+
+This property defines the type of marker used for the list items.
+
+Syntax:
+
+ul {
+  list-style-type: square;
+}
+
+
+Common values:
+
+For <ul>:
+
+disc → ● (default)
+
+circle → ○
+
+square → ■
+
+none → removes the bullet
+
+For <ol>:
+
+decimal → 1, 2, 3
+
+lower-alpha → a, b, c
+
+upper-alpha → A, B, C
+
+lower-roman → i, ii, iii
+
+upper-roman → I, II, III
+
+Example:
+
+ol {
+  list-style-type: upper-roman;
+}
+
+2. list-style-position
+
+Defines whether the marker (bullet/number) appears inside or outside the list item’s content box.
+
+Values:
+
+outside (default) → marker is outside the text block.
+
+inside → marker is part of the text block.
+
+Example:
+
+ul {
+  list-style-position: inside;
+}
+
+3. list-style-image
+
+Allows you to use a custom image as the list marker.
+
+Example:
+
+ul {
+  list-style-image: url('arrow.png');
+}
+
+
+✅ Tip: Use small transparent icons or SVGs for clean designs.
+
+4. list-style (shorthand)
+
+You can combine all three list properties (type, position, and image) in one line.
+
+Syntax:
+
+ul {
+  list-style: square inside url('arrow.png');
+}
+
+💡 Additional List Styling Tips
+
+Remove default bullets for custom designs:
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+Add custom icons manually:
+
+ul li::before {
+  content: "→ ";
+  color: #00b894;
+  font-weight: bold;
+}
+
+
+Add hover effects:
+
+li:hover {
+  color: #ff4757;
+}
+
+🧾 TABLE STYLING IN CSS
+
+Tables (<table>, <tr>, <th>, <td>) are used to organize data in rows and columns. CSS allows you to make tables clean, readable, and responsive.
+
+🧱 Basic Table Structure
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>25</td>
+      <td>USA</td>
+    </tr>
+  </tbody>
+</table>
+
+🎨 Common CSS Table Properties
+1. border
+
+Adds or customizes borders around table cells.
+
+Example:
+
+table, th, td {
+  border: 1px solid #333;
+}
+
+2. border-collapse
+
+Controls how table borders are merged.
+
+Values:
+
+collapse → merges adjacent borders (common)
+
+separate → keeps borders distinct
+
+Example:
+
+table {
+  border-collapse: collapse;
+}
+
+3. padding
+
+Adds space inside cells.
+
+th, td {
+  padding: 10px;
+}
+
+4. text-align
+
+Aligns content horizontally within cells.
+
+th {
+  text-align: left;
+}
+td {
+  text-align: center;
+}
+
+5. background-color
+
+Applies background color to rows, columns, or headers.
+
+th {
+  background-color: #16a085;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+6. width and height
+
+Defines the size of the table or cells.
+
+table {
+  width: 100%;
+}
+th, td {
+  height: 50px;
+}
+
+7. caption-side
+
+Defines where a table’s <caption> appears.
+
+Values: top (default), bottom
+
+caption {
+  caption-side: bottom;
+  font-style: italic;
+}
+
+🪄 Advanced Table Styling Techniques
+
+Striped Rows:
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+Hover Highlight:
+
+tr:hover {
+  background-color: #dfe6e9;
+}
+
+
+Rounded Borders:
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+Responsive Tables (Scroll on small screens):
+
+.table-container {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  min-width: 600px;
+}
+
+🧠 Difference Between List Styling and Table Styling
+Feature	List Styling	Table Styling
+Structure	Linear (one-dimensional)	Tabular (rows & columns)
+Elements	<ul>, <ol>, <li>	<table>, <tr>, <th>, <td>
+Purpose	Display list items	Display structured data
+Main CSS Property	list-style	border, padding, text-align, background-color
+Customization	Bullets, icons, spacing	Borders, alignment, hover effects
+🧾 Example (Complete Styling Demo)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>List and Table Styling</title>
+<style>
+  /* List Styling 
+  ul {
+    list-style-type: square;
+    list-style-position: inside;
+  }
+  ol {
+    list-style-type: upper-roman;
+  }
+  ul li::before {
+    content: "✔ ";
+    color: #2ecc71;
+  }
+
+  /* Table Styling 
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #2980b9;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  tr:hover {
+    background-color: #dcdde1;
+  }
+</style>
+</head>
+<body>
+
+<h2>Styled List</h2>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+<h2>Styled Table</h2>
+<table>
+  <thead>
+    <tr><th>Name</th><th>Age</th><th>Country</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Jane</td><td>23</td><td>Canada</td></tr>
+    <tr><td>Ahmed</td><td>29</td><td>Nigeria</td></tr>
+    <tr><td>John</td><td>25</td><td>USA</td></tr>
+  </tbody>
+</table>
+
+</body>
+</html> */
+
+/* Min-Width, Min-Height, Max-Width, Max-Height */
+/* Min-width, Max-width, Min-height, and Max-height in CSS
+
+In CSS, size constraints like min-width, max-width, min-height, and max-height help control how elements resize on different screen sizes or when their content changes.
+
+They are very important in responsive web design, ensuring elements stay within a desired visual range — not too small, not too large.
+
+🎯 1. Understanding the Concepts
+Property	Purpose
+min-width	Sets the minimum width an element can shrink to
+max-width	Sets the maximum width an element can grow to
+min-height	Sets the minimum height an element can shrink to
+max-height	Sets the maximum height an element can grow to
+
+These properties limit how far an element can stretch or shrink — even if the screen or container changes size.
+
+⚙️ 2. Syntax
+selector {
+  min-width: value;
+  max-width: value;
+  min-height: value;
+  max-height: value;
+}
+
+
+Value Units:
+
+Absolute units → px, pt, cm, etc.
+
+Relative units → %, em, rem, vw, vh, etc.
+
+💡 3. The Role of Each Property
+🔹 A. min-width
+
+Defines the smallest possible width of an element.
+If the container becomes smaller than this limit, the element won’t shrink below it.
+
+Example:
+
+.box {
+  width: 50%;
+  min-width: 300px;
+}
+
+
+➡️ Here, the .box will take up 50% of the screen width,
+but never go below 300px, no matter how small the screen becomes.
+
+Common Use Case:
+Preventing text boxes or images from becoming too narrow on mobile screens.
+
+🔹 B. max-width
+
+Defines the largest possible width of an element.
+Even if the parent container expands, the element won’t exceed this limit.
+
+Example:
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+}
+
+
+➡️ The .container will scale with the viewport (90%),
+but will stop growing after reaching 800px width — ideal for centered layouts.
+
+Common Use Case:
+Preventing overly wide content on large screens.
+
+🔹 C. min-height
+
+Sets the minimum height of an element.
+If the content is smaller, the element still maintains this height.
+
+Example:
+
+.card {
+  min-height: 200px;
+}
+
+
+➡️ Even if the content inside is only a few words,
+the .card will always be at least 200px tall.
+
+Common Use Case:
+Keeping consistent box heights in grids or layouts.
+
+🔹 D. max-height
+
+Sets the maximum height of an element.
+If the content inside exceeds that height, it will overflow or trigger scrolling, depending on CSS.
+
+Example:
+
+.text-box {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+
+➡️ The .text-box won’t grow taller than 150px,
+and any extra content will scroll inside it.
+
+Common Use Case:
+Scrollable content areas, chat windows, or fixed-height sections.
+
+🧱 4. Combining These Properties
+
+You can combine min- and max- constraints to make elements flexible yet controlled.
+
+Example:
+
+.box {
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  height: auto;
+  min-height: 200px;
+  max-height: 600px;
+}
+
+
+➡️ This ensures:
+
+The box width adjusts with screen size but never smaller than 300px and never larger than 800px.
+
+The height grows with content but stays between 200px and 600px.
+
+🧠 5. Behavior Hierarchy (When Combined with width and height)
+
+If width or height conflicts with the min/max properties,
+CSS gives priority in this order:
+
+Priority	Property	Explanation
+1️⃣	min-width / min-height	The element cannot go smaller than this
+2️⃣	max-width / max-height	The element cannot go bigger than this
+3️⃣	width / height	Used only within the allowed range
+
+Example:
+
+div {
+  width: 200px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+
+➡️ The actual width will be 300px, because min-width overrides width (it’s the lower limit).
+
+📱 6. Practical Use Cases
+✅ Responsive Layouts
+.container {
+  width: 90%;
+  min-width: 320px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+Ensures your layout looks good across phones, tablets, and desktops.
+
+✅ Image Scaling
+img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+
+Makes images responsive but prevents them from becoming too large or distorted.
+
+✅ Card Layouts
+.card {
+  min-height: 200px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+
+Keeps cards uniform and hides excess text beyond a set height.
+
+✅ Scrollable Text Box
+textarea {
+  min-height: 100px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+
+Makes long text scrollable without expanding indefinitely.
+
+🎨 7. Example Demonstration
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min/Max Width and Height Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #ecf0f1;
+    padding: 30px;
+  }
+
+  .responsive-box {
+    background: #3498db;
+    color: white;
+    padding: 20px;
+    width: 60%;
+    min-width: 250px;
+    max-width: 600px;
+    min-height: 150px;
+    max-height: 400px;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Min-width / Max-width / Min-height / Max-height Example</h2>
+<div class="responsive-box">
+  Resize your browser window to see how this box changes width,  
+  but never becomes smaller than 250px or larger than 600px.  
+  <br><br>
+  It also won’t grow taller than 400px — extra text will scroll inside.
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a velit lorem. Integer non magna non lorem malesuada congue. Suspendisse quis ligula sem.</p>
+</div>
+
+</body>
+</html> */
+
+/* CSS MEASUMENT UNITS */
+/* Relative and Absolute Measurement Units in CSS
+
+In CSS, measurement units define sizes for elements — such as width, height, font size, margins, paddings, and more.
+These units determine how big or small elements appear on a screen, and whether their size changes dynamically (relative) or stays fixed (absolute).
+
+🧩 1. Classification of CSS Units
+
+There are two main types of measurement units in CSS:
+
+Type	Description
+Absolute Units	Fixed sizes that do not change based on screen or parent element
+Relative Units	Flexible sizes that adapt based on another measurement (like parent size, font size, or viewport)
+🧱 2. Absolute Measurement Units
+
+Absolute units represent fixed physical measurements that remain the same regardless of screen size or resolution.
+
+📏 Common Absolute Units
+Unit	Name	Relative to	Example	Description
+px	Pixel	1 device pixel	width: 200px;	Most commonly used; not truly fixed on all screens but treated as fixed for layout.
+pt	Point	1/72 of an inch	font-size: 12pt;	Used in print media (like documents or PDFs).
+cm	Centimeter	Physical centimeters	width: 5cm;	Used rarely in screen design; better for print.
+mm	Millimeter	Physical millimeters	height: 50mm;	Used for print or precise layouts.
+in	Inch	2.54 cm	width: 2in;	Used for print or fixed physical dimensions.
+pc	Pica	1/6 of an inch	font-size: 2pc;	Rare; mostly for print design.
+💡 Key Points About Absolute Units
+
+They give precise control over size.
+
+They don’t respond to viewport changes (not ideal for responsive design).
+
+Commonly used: px (for screens), pt, cm, in (for printing).
+
+Example:
+
+h1 {
+  font-size: 32px;
+}
+div {
+  width: 10cm;
+  height: 5cm;
+}
+
+
+➡️ The size remains constant regardless of screen size or resolution.
+
+⚙️ 3. Relative Measurement Units
+
+Relative units are dynamic — they change in proportion to another value such as:
+
+the font size of the parent or root element, or
+
+the viewport size (browser window).
+
+These are essential for responsive web design.
+
+🔹 Font-Relative Units
+Unit	Relative To	Example	Description
+em	Font size of the element’s parent	font-size: 2em;	2 × parent font size
+rem	Font size of the root element (html)	font-size: 1.5rem;	1.5 × root font size
+ex	Height of lowercase letter x	line-height: 2ex;	Based on x-height of font
+ch	Width of the 0 (zero) character	width: 30ch;	Useful for fixed-width text boxes
+🧠 Example of em vs rem
+html {
+  font-size: 16px;  /* root font size 
+}
+
+.container {
+  font-size: 20px;  /* parent font size 
+}
+
+.container p {
+  font-size: 1.5em;   /* = 1.5 × 20px = 30px 
+}
+
+.container span {
+  font-size: 1.5rem;  /* = 1.5 × 16px = 24px 
+}
+
+
+✅ em depends on the parent
+✅ rem depends on the root (html)
+
+So rem is more consistent, while em is more contextual.
+
+🔹 Viewport-Relative Units
+
+Viewport means the visible area of the web page in the browser window.
+
+Unit	Relative To	Example	Description
+vw	1% of viewport width	width: 50vw;	50% of viewport width
+vh	1% of viewport height	height: 100vh;	100% of viewport height
+vmin	1% of the smaller side (width or height)	font-size: 5vmin;	Adapts to smallest viewport dimension
+vmax	1% of the larger side (width or height)	font-size: 5vmax;	Adapts to largest viewport dimension
+🧠 Example:
+section {
+  width: 80vw;      /* 80% of the viewport width 
+  height: 50vh;     /* 50% of the viewport height *
+}
+
+h1 {
+  font-size: 5vmin; /* scales based on smaller dimension 
+}
+
+
+✅ Makes layouts responsive to any screen size (phones, tablets, desktops).
+
+🔹 Percentage (%) Units
+
+The % unit is relative to the parent element’s size (width or height).
+
+Example:
+
+.parent {
+  width: 500px;
+}
+
+.child {
+  width: 50%;
+}
+
+
+➡️ The child’s width will be 250px, which is 50% of its parent’s width.
+
+⚠️ Note: Height percentages often depend on the parent’s defined height.
+
+🔹 Relative Units for Responsive Typography
+
+Modern CSS allows scalable font sizes that respond to the viewport:
+
+h1 {
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+
+
+✅ clamp() dynamically adjusts font size between 1rem (minimum) and 3rem (maximum), scaling smoothly with viewport width (5vw).
+
+🧮 4. Comparison of Absolute vs Relative Units
+Feature	Absolute Units	Relative Units
+Behavior	Fixed, constant	Flexible, changes with context
+Responsiveness	Not responsive	Fully responsive
+Common Use	Print design, pixel-perfect layouts	Web design, mobile-first layouts
+Examples	px, pt, cm, mm, in	em, rem, %, vw, vh, vmin, vmax
+Preferred for Modern Web	❌ No	✅ Yes
+💻 5. Example Demonstration
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Units Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  .absolute {
+    width: 300px;
+    height: 150px;
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    line-height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .relative {
+    width: 50vw;
+    height: 30vh;
+    background-color: #27ae60;
+    color: white;
+    text-align: center;
+    line-height: 30vh;
+  }
+
+  .text {
+    font-size: 1.5rem;
+    width: 60%;
+    margin: auto;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Absolute vs Relative Units</h2>
+
+<div class="absolute">Fixed (300px × 150px)</div>
+<div class="relative">Responsive (50vw × 30vh)</div>
+
+<p class="text">
+  This text uses <b>rem</b> for font size and <b>%</b> for width,  
+  so it resizes smoothly across different devices.
+</p>
+
+</body>
+</html>
+
+
+✅ Resize your browser to see the relative unit box adapt to the window,
+while the absolute unit box stays fixed.
+
+🧠 6. When to Use Which
+Situation	Recommended Unit
+Screen layouts (width, height)	%, vw, vh, vmin, vmax
+Font sizes	rem (for consistent scaling), em (for local scaling)
+Margins and padding	em or rem
+Print styles	cm, mm, in, pt
+Pixel-perfect control	px (use carefully) */

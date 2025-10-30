@@ -1,4 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+JP:wght@100..900&family=Shadows+Into+Light&display=swap');
+:root{ 
+    --font-noto: "Noto Sans JP", sans-serif;
+    --font-lobster: "Lobster Two", sans-serif;
+}
 *{ 
     margin: 0;
 }.registration-form{ 
@@ -20,7 +24,9 @@ h4{
 }
 .registration-form label{ 
     font-weight: bold;
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+   /* font-family: "Noto Sans JP", sans-serif; */
+   font-family: var(--font-lobster);
     margin-bottom: 5px;
 }
 #middleName{ 
@@ -170,8 +176,13 @@ li:nth-child(2n of .score) {
 .section{ 
     width: 100%;
     height: 100vh;
-    border: 5px solid #49f9f9;
-    margin: auto;
+    /* border: 5px solid #49f9f9;*/
+    border-width: 7px;
+    border-style: groove;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-color: linear-gradient(to left #33ed3e, #ab040a) 1;
+    /* margin: auto; */
     padding: 10px;
     background: url('./Book2Read8.jpeg') repeat center center/cover;
 }
@@ -201,7 +212,16 @@ li:nth-child(2n of .score) {
     justify-content: space-around;
     /* background: linear-gradient(to top, #fed, #d34, #dd3); */
     /* background: radial-gradient(circle, rgb(230, 200, 122), rgba(100, 30, 80)); */
-    background: conic-gradient(from 130deg, rgb(33, 150, 200), rgb(17, 55, 20));
+    /* background: conic-gradient(from 130deg, rgb(33, 150, 200), rgb(17, 55, 20)); */
+    /* background: repeating-linear-gradient( 
+        45deg,
+  red 0px,
+  red 10px,
+  yellow 10px,
+  yellow 20px
+    ); */
+    /* background: repeating-radial-gradient(circle, blue 0, blue 10px, #33ed3e 10px, #33ed3e 20px); */
+    background: linear-gradient(to bottom, rgba(255,0,0,0.8), rgba(77,255,255,0.5));
     align-items: center;
 }
 
@@ -223,4 +243,14 @@ li:nth-child(2n of .score) {
     height: 30px;
     background: url('./Checkmark2.jpg')  center/contain no-repeat;
     z-index: 2;
+}
+
+.Cane{ 
+  list-style-type: none;
+}
+.Abel{ 
+  list-style-type: lower-roman;
+}
+.Jonah{ 
+
 }
