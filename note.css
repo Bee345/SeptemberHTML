@@ -2567,3 +2567,300 @@ Font sizes	rem (for consistent scaling), em (for local scaling)
 Margins and padding	em or rem
 Print styles	cm, mm, in, pt
 Pixel-perfect control	px (use carefully) */
+
+/* Display In CSS And List Display In CSS */
+/* What is the display Property in CSS?
+
+The display property in CSS determines how an element is displayed on the web page — that is, how it behaves in the layout flow of the document.
+
+It defines:
+
+Whether an element behaves as a block, inline, or flex/grid container
+
+How child elements (inside it) are laid out
+
+How it interacts with other elements
+
+🧩 Syntax
+selector {
+  display: value;
+}
+
+
+Example:
+
+p {
+  display: block;
+}
+
+span {
+  display: inline;
+}
+
+🔍 Common Display Values
+Value	Description
+block	Displays the element as a block-level element (starts on a new line and takes full width)
+inline	Displays the element as inline, taking only the space needed by its content
+inline-block	Behaves like inline but allows width, height, and margin/padding
+none	Hides the element completely (does not occupy any space)
+flex	Defines a flex container for flexible box layouts
+inline-flex	Same as flex, but container acts like an inline element
+grid	Defines a grid container for two-dimensional layouts
+inline-grid	Same as grid, but behaves inline
+table	Behaves like an HTML <table> element
+list-item	Behaves like an <li> (list item), showing bullet or number
+run-in	Rarely used; element behaves as block or inline depending on context
+contents	Makes the element disappear visually but keeps its children visible and part of the flow
+inherit	Inherits display property from its parent
+initial	Resets to the default display value for that element type
+🧱 1. display: block
+
+Starts on a new line
+
+Takes up full width
+
+Can set width, height, margin, and padding
+
+Example:
+
+div {
+  display: block;
+}
+
+<div>Box 1</div>
+<div>Box 2</div>
+
+
+✅ Output:
+Each box appears on its own line and stretches the full width of the page.
+
+✏️ 2. display: inline
+
+Does not start on a new line
+
+Takes only as much space as needed
+
+Cannot set width or height
+
+Example:
+
+span {
+  display: inline;
+}
+
+<p>This is <span>inline</span> text.</p>
+
+
+✅ Output:
+Text flows naturally on the same line.
+
+🧩 3. display: inline-block
+
+Behaves inline (no new line)
+
+Accepts width, height, margin, and padding
+
+Example:
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  background: skyblue;
+  margin: 5px;
+}
+
+
+✅ Output:
+Boxes appear side by side but maintain block-level sizing.
+
+❌ 4. display: none
+
+The element is not displayed at all
+
+It takes up no space in the layout
+
+Example:
+
+button {
+  display: none;
+}
+
+
+✅ Output:
+The button completely disappears from the page.
+
+💡 Note: visibility: hidden hides an element visually but still leaves the space it occupies, while display: none removes it entirely.
+
+🧭 5. display: flex
+
+Turns the element into a flex container
+
+Its direct children become flex items
+
+Allows flexible layouts (horizontal or vertical)
+
+Example:
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+
+✅ Output:
+Child elements line up in a row by default and can be spaced or aligned easily.
+
+🧮 6. display: grid
+
+Turns the element into a grid container
+
+Children are placed on rows and columns
+
+Example:
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+
+✅ Output:
+Items appear in a 3-column layout.
+
+📋 7. display: list-item
+
+Now let’s dive into the part you asked about specifically — List Display in CSS.
+
+📚 List Display in CSS
+
+Lists are fundamental to HTML — used for menus, navigation, and structured content.
+They include:
+
+Ordered lists (<ol>) → Numbered
+
+Unordered lists (<ul>) → Bulleted
+
+List items (<li>) → Each list entry
+
+📖 Default Display Behavior
+
+By default:
+
+<ul> and <ol> are block elements.
+
+<li> elements are display: list-item by default.
+
+That means each list item:
+
+Starts on a new line (like a block element)
+
+Has a bullet (•) or number (1., 2., 3.) before it
+
+Example:
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+
+✅ Default Output:
+
+HTML
+
+CSS
+
+JavaScript
+
+🎯 Customizing List Display
+
+You can style how lists and list items appear using CSS.
+
+1. Removing List Bullets
+ul {
+  list-style-type: none;
+}
+
+
+✅ Removes the default bullet/number.
+
+2. Changing List Marker Type
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+
+
+✅ Examples of list-style-type values:
+
+Type	Description
+disc	Default bullet (•)
+circle	Hollow bullet (◦)
+square	Square bullet (■)
+none	No marker
+decimal	1, 2, 3
+lower-alpha	a, b, c
+upper-roman	I, II, III
+3. Using Custom Images as Markers
+ul {
+  list-style-image: url('icon.png');
+}
+
+
+✅ Adds a custom image before each list item.
+
+4. Positioning the List Marker
+ul {
+  list-style-position: inside;
+}
+
+
+outside → Bullet outside the text block (default)
+
+inside → Bullet inside the text area
+
+5. Converting List Items to Inline
+
+You can change <li> items to appear on the same line:
+
+li {
+  display: inline;
+  margin-right: 15px;
+}
+
+
+✅ Output:
+HTML CSS JavaScript
+
+This is often used for navigation menus.
+
+6. Flex or Grid for Lists
+
+Modern menus often use flex or grid for alignment:
+
+ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+
+✅ Output:
+A horizontal list, neatly spaced — perfect for navbars.
+
+🧩 Summary Table of Display Values
+Value	Description	Common Use
+block	Full-width element	Paragraphs, sections
+inline	In-line element	Text, spans
+inline-block	Inline + block hybrid	Buttons, icons
+none	Hide element	Conditional rendering
+flex	Flexible box layout	Navigation, galleries
+grid	Grid layout	Complex page layouts
+list-item	Adds bullet/number marker	List items */
+/* File path Directory On Ur PC */

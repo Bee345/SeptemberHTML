@@ -97,7 +97,7 @@ table caption{
     font-size: 2rem;
     font-weight: bold;
     margin: 10px;
-    caption-side: bottom;
+    caption-side: top;
 }
  thead{ 
     background-color: #a33;
@@ -145,7 +145,7 @@ table caption{
   color: red;
   font-size: 24px;
 }
-.highlight{ 
+.chinedu{ 
     direction: rtl;
 }
 
@@ -208,8 +208,11 @@ li:nth-child(2n of .score) {
     height: 40vh;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     border: 4px groove #484744;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
+    
     /* background: linear-gradient(to top, #fed, #d34, #dd3); */
     /* background: radial-gradient(circle, rgb(230, 200, 122), rgba(100, 30, 80)); */
     /* background: conic-gradient(from 130deg, rgb(33, 150, 200), rgb(17, 55, 20)); */
@@ -222,9 +225,18 @@ li:nth-child(2n of .score) {
     ); */
     /* background: repeating-radial-gradient(circle, blue 0, blue 10px, #33ed3e 10px, #33ed3e 20px); */
     background: linear-gradient(to bottom, rgba(255,0,0,0.8), rgba(77,255,255,0.5));
-    align-items: center;
+    align-items: left;
+    /* align-content: center; */
+}
+.one{ 
+    font-size: larger;
 }
 
+@media screen and (min-width: 300px) and (max-width: 500px){ 
+    .one{ 
+        font-size: smaller;
+    }
+}
 .skills{ 
     list-style: none;
     padding: 0;
